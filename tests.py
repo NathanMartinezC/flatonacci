@@ -6,17 +6,6 @@ from flatonacci import flatonacci
 
 class TestFlatonacci(unittest.TestCase):
 
-    def setUp(self):
-        self.signature_valid = [1,1,1]
-        self.signature_with_string = [1,2,'s']
-        self.signature_bigger = [1,2,3,4]
-        self.signature_smaller = [1,2]
-        self.n_valid_small = 1
-        self.n_valid_big = 5 
-        self.n_string = 's'
-        self.n_negative = -2
-        self.n_zero = 0
-
     def test_n_values(self):
         print('Test for n values: n is not number, n is negative, n is zero')
         signature_valid = [1,2,3]
@@ -47,5 +36,6 @@ class TestFlatonacci(unittest.TestCase):
         self.assertEqual(len(flatonacci(signature_example, n_big)), n_big)
         self.assertEqual(flatonacci(signature_example, n_small), sequence_small)
         self.assertEqual(flatonacci(signature_example, n_big), sequence_big)
+
         
         

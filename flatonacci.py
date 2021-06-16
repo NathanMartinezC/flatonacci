@@ -22,7 +22,37 @@ clearly specified ;)
 Note. Please note that we are gonna test the funcion against a lot of different signatures and n's
 """
 
+def validate_input(signature: list, n: int) -> None:
 
+    if len(signature) != 3:
+        raise ValueError(f'Flatonacci needs a signature of 3 numbers, you provided {len(signature)} numbers.')
+
+    if not all( (isinstance(number, int) or isinstance(number, float)) for number in signature):
+        raise ValueError(f'Flatonacci only accepts numbers for signature values, you provided {signature}')
+
+    if not isinstance(n, int):
+        raise ValueError(f'Flatonacci only accepts integer numbers for n, you provided {n}')
+
+    if n < 0:
+        raise ValueError(f'Flatonacci needs a non-negative number for n, you provided {n}.')
+
+    
+    
 def flatonacci(signature: list, n: int) -> list:
-    # happy coding
-    pass
+    validate_input(signature, n)
+    sequence = []
+    added_numbers = int()
+
+    if n == 0:
+        return []
+    else:
+        sequence = [s for s in signature]
+        if n >= len(signature):
+            added_numbers = n - len(signature)
+        else:
+            added_numbers = n
+
+    for s in range(added_numbers):
+        sequence.append(sum(sequence[-3:]))
+    
+    return sequence
